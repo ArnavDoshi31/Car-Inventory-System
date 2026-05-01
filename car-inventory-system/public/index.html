@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Inventory System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=5">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <div class="app-container">
+        <aside class="sidebar glass-panel">
+            <div class="logo">
+                <h2><i class="fa-solid fa-car-side"></i> Car Inventory System</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active" onclick="showTab('cars')"><i class="fa-solid fa-warehouse"></i> Inventory</li>
+                    <li onclick="showTab('customers')"><i class="fa-solid fa-users"></i> Customers</li>
+                    <li onclick="showTab('employees')"><i class="fa-solid fa-user-tie"></i> Employees</li>
+                    <li onclick="showTab('sales')"><i class="fa-solid fa-chart-line"></i> Sales & Analytics</li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <header>
+                <div>
+                    <h1 id="page-title">Cars Inventory</h1>
+                    <p class="subtitle" id="page-subtitle">Manage your fleet and track availability.</p>
+                </div>
+                <button class="btn-primary pulse" onclick="showModal()">
+                    <i class="fa-solid fa-plus"></i> Add New
+                </button>
+            </header>
+            
+            <div class="summary-widgets" id="summary-widgets">
+                <!-- Widgets injected here -->
+            </div>
+
+            <div class="analytics-container" id="analytics-container" style="display: none;">
+                <div class="chart-wrapper glass-panel">
+                    <h3>Monthly Revenue & Profit</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="data-container" id="data-container">
+                <!-- Data will be loaded here via JS -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for adding new items -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal glass-panel">
+            <h2 id="modal-title">Add New</h2>
+            <form id="add-form">
+                <div id="form-fields"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js?v=11"></script>
+</body>
+</html>
